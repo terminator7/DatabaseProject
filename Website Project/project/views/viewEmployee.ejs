@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <div class="container-fluid main-container">
+        <h1 class ="title text-center">View Employee</h1>
+        <% for (var i =0; i < employees.length;  i++ ) { %>
+            <table class="text-center mx-auto my-3 table-bordered table-sm ">
+                <thead>
+                    <tr>
+                        <th colspan="4" scope="col"><%=employees[i].id%> <br> <%=employees[i].Fname%> <%=employees[i].Lname%></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th colspan="4" scope="col"><%=employeesJobs[i][0].Task_Name%> <br> <%=employeesJobs[i][0].TaskID%></th>
+                    </tr>
+                    <tr>
+                        <th colspan="4" scope="col">Jobs</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Job</th>
+                        <th scope="col">Car</th>
+                        <th scope="col">Time Started</th>
+                        <th scope="col">Time Ended</th>
+                    </tr>
+                    <% for(var j=0; j < employeesJobs[i].length; j++) { %>
+                        <% if (employeesJobs[i][j].JobID) { %>
+                            <tr>
+                                <td><%=employeesJobs[i][j].JobID%></td>
+                                <td><%=employeesJobs[i][j].MainColor%> <%=employeesJobs[i][j].AccentColor%> <%=employeesJobs[i][j].Make%> <%=employeesJobs[i][j].Model%></td>
+                                <td>
+                                    <% if(employeesJobs[i][j].DateTimeStarted) { %>
+                                        <%=employeesJobs[i][j].DateTimeStarted.toLocaleString()%> 
+                                <% } %>
+                                </td>
+                                <td>
+                                    <% if(employeesJobs[i][j].DateTimeEnded) { %>
+                                        <%=employeesJobs[i][j].DateTimeEnded.toLocaleString()%> 
+                                <% } %>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } %>
+        </div>
+  </body>
+</html>

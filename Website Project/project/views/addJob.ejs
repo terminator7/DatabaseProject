@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+  </head>
+  <body>
+    <div class="container-fluid main-container">
+
+      <h1 class="text-center title">Add Job</h1>
+      <div class="text-center my-3" id="results"></div>
+      <div class="row d-flex justify-content-center my-4">
+        <div class="col-auto">
+          <form action="/addJob" id="postForm">
+            <div class="row form-group">
+              <div class="col-sm-12 col-lg-6">
+                <h3 class="text-center title">Car Information</h3>
+                <div class="my-3 p-2">
+                  <div class="row form-group my-3 align-items-center w-100">
+                    <div class="col-4 px-0">
+                      <label class="text-right" style="width: 100%;" for="vinnum" class="form-label">Vin number:</label>
+                    </div>
+                    <div class="col-8">
+                      <input type="text", name="vin", class="form-control">
+                    </div>
+                  </div>
+                  <div class="row form-group my-3 align-items-center w-100">
+                    <div class="col-4 px-0">
+                      <label class="text-right" style="width: 100%;" for="Make" class="form-label">Make:</label>
+                    </div>
+                    <div class="col-8">
+                      <input type="text", name="make", class="form-control">
+                    </div>
+                  </div>
+                  <div class="row form-group my-3 align-items-center w-100">
+                    <div class="col-4 px-0">
+                      <label class="text-right" style="width: 100%;" for="model" class="form-label">Model:</label>
+                    </div>
+                    <div class="col-8">
+                      <input type="text", name="model", class="form-control">
+                    </div>
+                  </div>
+                  <div class="row form-group my-3 align-items-center w-100">
+                    <div class="col-4 px-0">
+                      <label class="text-right" style="width: 100%;" for="color" class="form-label">Color:</label>
+                    </div>
+                    <div class="col-8">
+                      <input type="text", name="color", class="form-control">
+                    </div>
+                  </div>
+                  <div class="row form-group my-3 align-items-center w-100">
+                    <div class="col-4 px-0">
+                      <label class="text-right" style="width: 100%;" for="accentcolor" class="form-label">Accent Color:</label>
+                    </div>
+                    <div class="col-8">
+                      <input type="text", name="accentcolor", class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <h3 class="title text-center">Owner Information</h3>
+                <div class="my-3 p-1">
+                  <div class="row form-group d-flex justify-content-center">
+                    <div class="w-50 row">
+                      <div class="col-lg-6 col-sm-6 d-flex justify-content-center">
+                        <div class="form-check mx-4 my-2 w-100">
+                          <input class="form-check-input" type="radio" name="isOwner" onclick="presentCustomers()" value=1>
+                          <label class="form-check-label" for="isOwner">Existing Owner</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 d-flex justify-content-center">
+                        <div class="form-check mx-4 my-2 w-100">
+                          <input class="form-check-input" type="radio" name="isOwner" onclick="presentNewCustomer()" value=0>
+                          <label class="form-check-label" for="isOwner">New Owner</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row form-group my-3 align-items-center w-100" id="fnameText">
+                    <div class="col-4 px-0">
+                      <label class="text-right" style="width: 100%;" for="ownerfname" class="form-label">First Name:</label>
+                    </div>
+                    <div class="col-8">
+                      <input type="text", name="ownerfname", class="form-control">
+                    </div>
+                  </div>
+      
+                  <div class="row form-group my-3 align-items-center w-100" id="lnameText">
+                    <div class="col-4 px-0">
+                      <label class="text-right" style="width: 100%;" for="ownerlname" class="form-label">Last Name:</label>
+                    </div>
+                    <div class="col-8">
+                      <input type="text", name="ownerlname", class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row align-items-center w-100" id="customerChooser">
+                    <div class="col-4">
+                      <label for="job" class="form-label text-right text-nowrap px-0" style="width: 100%;">Choose a Customer:</label>
+                    </div>
+                    <div class="col-8">
+                      <select class="form-select w-100" name="owner">
+                        <option selected value="">Please choose a Customer</option>
+                        <% for(var i=0; i < customers.length; i++) { %>
+                          <option value="<%=customers[i].id%>"><%=customers[i].Fname%> <%=customers[i].Lname%></option>
+                        <%} %>
+                    </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group d-flex justify-content-center">
+              <div class="w-50 row">
+                <% for(var i=0; i < tasks.length; i++) { %>
+                  <div class="col-lg-3 col-sm-6 d-flex justify-content-center px-0">
+                    <div class="form-check my-2">
+                      <input class="form-check-input" type="radio" name="Task" value=<%=tasks[i].id%>>
+                      <label class="form-check-label" for="Task"><%=tasks[i].Task_Name%></label>
+                    </div>
+                  </div>
+                <% } %>
+              </div>
+            </div>
+            <div class="row form-group my-3 justify-content-center">
+              <div class="col-auto">
+                <input class="btn btn-lg btn-primary"type="submit" value="Add">
+              </div>
+            </div>
+          </form> 
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/assets/javascripts/customers.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/postData.js"></script>
+  </body>
+</html>

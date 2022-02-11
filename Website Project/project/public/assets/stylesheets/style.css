@@ -1,0 +1,158 @@
+* {
+  font-family: 'Cairo', sans-serif;
+}
+
+.main-container {
+  background-color: #cee2f5;
+  border-style: solid;
+  border-radius: 4em;
+  border-width: .5em;
+  border-color: #083173
+}
+
+.col {
+  outline-style: solid;
+  padding: 0;
+}
+
+.myButtonGroup {
+  width: 75%;
+}
+
+.groups {
+  margin-top: 2.5em;
+}
+
+.title {
+  margin-top: .5em;
+  color: #032963;
+}
+
+h2, h1,label{
+  color: #032963;
+}
+
+table.table-bordered{
+  border:.3em solid #0945a5;
+  color: #032963;
+}
+
+table.table-bordered > tbody > tr > *{
+  border:.2em solid #0945a5;
+}
+
+
+
+/* 
+
+button{
+  border-radius: 1em;
+  border-style: none;
+  font-size: 1.125rem;
+  box-shadow: 5em;
+  color: white;
+  background-color: #4298f5;
+}
+
+button:focus, input[type=submit] {
+  outline: none;
+}
+
+button:hover{
+  box-shadow: 5em;
+  background-color: rgb(88, 173, 219);
+  cursor: pointer;
+  box-shadow: .5em .5em 1em rgba(88, 138, 219, .5);
+  transition: all 0.3s ease 0s;
+  transform: translateY(-.15em);
+}
+
+.container {
+  background-color: #cee2f5;
+  border-style: solid;
+  border-radius: 4em;
+  border-width: .5em;
+  border-color: #083173
+}
+
+.menu {
+  outline-style: solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.container h1 {
+  color: #031530;
+  margin-top: .5em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.menu > div {
+  outline-style: solid;
+  width: 20em;
+  margin-left: 2em;
+  margin-right: 2em;
+  padding: 0em;
+}
+
+.menu > div > h2 {
+  margin-top: 1em;
+  margin-bottom: 0;
+  text-align: center;
+  color: #031530;
+}
+
+.buttonGroup {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.buttonGroup button {
+  margin: 1em;
+  padding: 1.5em;
+}
+
+.bottomButtonGroup {
+  outline-style: solid;
+  width: 100%;
+  margin: 1em auto;
+  display: flex;
+  justify-content: center;
+}
+
+.bottomButtonGroup > button{
+  margin: .5em;
+  padding: .75em;
+  width: 10em;
+}
+
+.addForm > div{
+  margin-top: .75em;
+  margin-bottom: .75em;
+}
+
+.radioButtons > div{
+  display: inline;
+  margin: 5em;
+}
+
+.textFields > label {
+  display: inline-block;
+  text-align: right;
+  width: 5em;
+}
+
+.textFields > input {
+  background-color:#4298f5;
+  border-style: none;
+}
+
+.addForm input[type="submit"] {
+  margin: auto;
+}
+ */

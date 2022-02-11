@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+
+  </head>
+  <body>
+    <div class="container-fluid main-container">
+
+      <h1 class="text-center title">Control Panel</h1>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="groups col-sm-12 col-lg-4">
+            <h2 class ="text-center">Employee</h2>
+            <div class="d-flex justify-content-center">
+              <div class="myButtonGroup d-flex justify-content-center flex-column">
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/addEmployee'">Add Employee</button>
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/deleteEmployee'">Delete Employee</button>
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/updateEmployee'">Update Employee</button>
+              </div>
+            </div>
+          </div>
+  
+          <div class="groups col-sm-12 col-lg-4">
+            <h2 class ="text-center">Task</h2>
+            <div class="d-flex justify-content-center">
+              <div class="myButtonGroup d-flex justify-content-center flex-column">
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/addTask'">Add Task</button>
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/deleteTask'">Delete Task</button>
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/updateTask'">Update Task</button>
+              </div>
+            </div>
+          </div>
+  
+          <div class="groups col-sm-12 col-lg-4">
+            <h2 class ="text-center">Jobs</h2>
+            <div class="d-flex justify-content-center">
+              <div class="myButtonGroup d-flex justify-content-center flex-column">
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/addJob'">Add Job</button>
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/deleteJob'">Delete Job</button>
+                <button class="btn btn-primary my-3 btn-lg text-nowrap" onclick="location.href='/updateJob'">Update Job</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-sm-12 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+            <button class="btn btn-primary m-3 text-nowrap btn-lg text-nowrap" style="width: 12em;" onclick="location.href='/viewJobs'">View Jobs</button>
+          </div>
+          <div class="col-sm-12 col-lg-4 d-flex justify-content-center justify-content-lg-center">
+            <button class="btn btn-primary m-3 text-nowrap btn-lg text-nowrap" style="width: 12em;" onclick="location.href='/viewEmployee'">View Employees</button>
+          </div>
+          <div class="col-sm-12 col-lg-4 d-flex justify-content-center justify-content-lg-start">
+            <button class="btn btn-primary m-3 text-nowrap btn-lg text-nowrap" style="width: 12em;" onclick="location.href='/viewCustomer'">View Customers</button>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/popper.js/popper.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

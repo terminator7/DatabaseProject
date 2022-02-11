@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <div>
+        <h1 class="title text-center"><%=job[0].id%> <br> <%=owner.Fname%> <%=owner.Lname%> <br> <%=job[0].MainColor%> <%=job[0].AccentColor%> <%=job[0].Make%> <%=job[0].Model%> <br> Total Cost: $<%=job[0].Cost%></h1>
+        <div class="text-center my-3" id="results"></div>
+            <table class="text-center mx-auto my-3 table-bordered w-75">
+                    <tbody>
+                    <tr>
+                        <th colspan="3" scope="col">Time Started</th>
+                        <th colspan="3" scope="col">Time Ended</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><%=job[0].DateTimeStarted.toLocaleString()%></td>
+                        <td colspan="3"><% if(job[0].DateTimeEnded) { %>
+                            <%=job[0].DateTimeEnded.toLocaleString()%> 
+                        <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="6">Tasks</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Task Name</th>
+                        <th scope="col">Time Started</th>
+                        <th scope="col">Time Ended</th>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Task ID</th>
+                    </tr>
+                    <% for(var j=0; j < jobsTasks[0].length; j++) { %>
+                        <tr>
+                            <td><%=jobsTasks[0][j].Task_Name%></td>
+                            <td><%=jobsTasks[0][j].DateTimeStarted.toLocaleString()%></td>
+                            <td>
+                                <% if(jobsTasks[0][j].DateTimeEnded) { %>
+                                    <%=jobsTasks[0][j].DateTimeEnded.toLocaleString()%> 
+                                <% } %>
+                            </td>
+                            <td><%=jobsTasks[0][j].Employee_Name%></td>
+                            <td>$<%=jobsTasks[0][j].Cost%></td>
+                            <td>$<%=jobsTasks[0][j].TaskID%></td>
+                    <% } %>
+                </tbody>
+            </table>
+      </div>
+  </body>
+</html>

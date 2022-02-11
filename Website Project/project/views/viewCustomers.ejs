@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <div class="container-fluid main-container">
+        <h1 class ="title text-center">View Customers</h1>
+        <% for (var i =0; i < customers.length;  i++ ) { %>
+            <table class="text-center mx-auto my-3 table-bordered table-sm ">
+                <thead>
+                    <tr>
+                        <th colspan="4" scope="col"><%=customers[i].id%> <br> <%=customers[i].Fname%> <%=customers[i].Lname%></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th colspan="4" scope="col">Jobs</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Job</th>
+                        <th scope="col">Car</th>
+                        <th scope="col">Time Started</th>
+                        <th scope="col">Time Ended</th>
+                    </tr>
+                    <% for(var j=0; j < customersJobs[i].length; j++) { %>
+                        <tr>
+                            <td><%=customersJobs[i][j].JobID%></td>
+                            <td><%=customersJobs[i][j].MainColor%> <%=customersJobs[i][j].AccentColor%> <%=customersJobs[i][j].Make%> <%=customersJobs[i][j].Model%> </td>
+                            <td><%=customersJobs[i][j].DateTimeStarted.toLocaleString()%></td>
+                            <td>
+                                <% if(customersJobs[i][j].DateTimeEnded) { %>
+                                    <%=customersJobs[i][j].DateTimeEnded.toLocaleString()%> 
+                            <% } %>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+  </body>
+</html>

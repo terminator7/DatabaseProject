@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+  </head>
+  <body>
+    <div class="container-fluid main-container p-4">
+      <h1 class="title text-center">Delete Employee</h1>
+      <div class="text-center my-3" id="results"></div>
+      <div class="row d-flex justify-content-center my-4">
+        <div class="col-12">
+          <div class="d-flex justify-content-center">
+            <form action="/deleteEmployee", id="postForm">
+              <div class="flex-group row align-items-center">
+                <div class="col-5">
+                  <label for="Employee" class="form-label text-right text-nowrap px-0" style="width: 100%;">Choose an Employee:</label>
+                </div>
+                <div class="col-6">
+                  <select class="form-select" name="Employee">
+                    <option selected>Please choose an option</option>
+                    <% for(var i=0; i < results.length; i++) { %>
+                      <option value="<%=results[i].id%>"><%=results[i].Fname%> <%=results[i].Lname%></option>
+                    <%} %>
+                </select>
+                </div>
+              </div>
+              <div class="row form-group my-3">
+                <div class="col-12 d-flex justify-content-center">
+                  <input class="btn btn-lg btn-primary"type="submit" value="Delete">
+                </div>
+              </div>
+            </form> 
+          </div> 
+      </div>
+    </div>
+    <script type="text/javascript" src="/assets/javascripts/postData.js"></script>
+  </body>
+</html>

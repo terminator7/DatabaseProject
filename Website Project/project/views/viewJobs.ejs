@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <div class="container-fluid main-container">
+        <h1 class="title text-center">View Jobs</h1>
+        <div class="text-center my-3" id="results"></div>
+        <% for (var i =0; i < jobs.length;  i++ ) { %>
+            <table class="text-center mx-auto my-3 table-bordered table-sm ">
+                <thead>
+                    <tr>
+                        <th colspan="6" scope="col"><%=jobs[i].id%> <br> <%=jobs[i].MainColor%> <%=jobs[i].AccentColor%> <%=jobs[i].Make%> <%=jobs[i].Model%> <br> $<%=jobs[i].Cost%></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th colspan="3" scope="col">Time Started</th>
+                        <th colspan="3" scope="col">Time Ended</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><%=jobs[i].DateTimeStarted.toLocaleString()%></td>
+                        <td colspan="3"><% if(jobs[i].DateTimeEnded) { %>
+                            <%=jobs[i].DateTimeEnded.toLocaleString()%> 
+                        <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="6">Tasks</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Task Name</th>
+                        <th scope="col">Time Started</th>
+                        <th scope="col">Time Ended</th>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Task ID</th>
+                    </tr>
+                    <% for(var j=0; j < jobsTasks[i].length; j++) { %>
+                        <tr>
+                            <td><%=jobsTasks[i][j].Task_Name%></td>
+                            <td><%=jobsTasks[i][j].DateTimeStarted.toLocaleString()%></td>
+                            <td>
+                                <% if(jobsTasks[i][j].DateTimeEnded) { %>
+                                    <%=jobsTasks[i][j].DateTimeEnded.toLocaleString()%> 
+                            <% } %>
+                            </td>
+                            <td>
+                                <% if(jobsTasks[i][j].id) { %>
+                                    <%=jobsTasks[i][j].Employee_Name%> 
+                            <% } else { %>
+                                    <select class="form-select" id="<%=i%>">
+                                        <option value="">Select Employee</option>
+                                            <% for (var k = 0; k < employeeList[j].length; k++) { %>
+                                                <% if (employeeList[i][j][k]) { %>
+                                                    <option value="<%=employeeList[i][j][k].id%>"><%=employeeList[i][j][k].Fname%> <%=employeeList[i][j][k].Lname%></option>
+                                                <% } %>
+                                            <% } %>
+                                    </select>
+                                    <button class="btn btn-primary" onclick="updateJob('<%=jobs[i].id%>,<%=i%>,<%=jobsTasks[i][j].TaskID%>')">Update</button>
+                                <% } %>
+                            </td>
+                            <td>$<%=jobsTasks[i][j].Cost%></td>
+                            <td><%=jobsTasks[i][j].TaskID%></td>
+                        </tr>
+                    <% } %>
+
+                    <% if(jobs[i].DateTimeEnded) { %>
+                        <tr>
+                            <td colspan="6"><form method="POST" action="/printJobInformation"><select name="Job" style="visibility: hidden;"><option selected value="<%=jobs[i].id%>">Hi</option></select><input class="btn btn-sm btn-primary"type="submit" value="Print Information"></form></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } %>
+      </div>
+    <script type="text/javascript" src="/assets/javascripts/jobs.js"></script>
+  </body>
+</html>

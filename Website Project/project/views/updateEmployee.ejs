@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+  </head>
+  <body>
+    <div class="container-fluid main-container p-4">
+      <h1 class="title text-center">Update Employee</h1>
+      <div class="text-center my-3" id="results"></div>
+      <div class="row d-flex justify-content-center my-3">
+        <div class="col-auto mt-3">
+          <form action="/updateEmployee" id="postForm">
+            <div class="flex-group row align-items-center">
+              <div class="col-5">
+                <label for="Employee" class="form-label text-right text-nowrap px-0" style="width: 100%;">Choose an Employee:</label>
+              </div>
+              <div class="col-6">
+                <select class="form-select" name="Employee">
+                  <option selected value="">Please choose an Employee</option>
+                  <% for(var i=0; i < employees.length; i++) { %>
+                    <option value="<%=employees[i].id%>"><%=employees[i].Fname%> <%=employees[i].Lname%></option>
+                  <%} %>
+              </select>
+              </div>
+            </div>
+            <div class="row form-group mt-3">
+              <% for(var i=0; i < tasks.length; i++) { %>
+                <div class="col-lg-3 col-sm-6 d-flex justify-content-center px-0">
+                  <div class="form-check my-2">
+                    <input class="form-check-input" type="radio" name="Task" value=<%=tasks[i].id%>>
+                    <label class="form-check-label" for="Task"><%=tasks[i].Task_Name%></label>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+            <div class="row my-3">
+              <div class="col-12 d-flex justify-content-center">
+                <input class="btn btn-lg btn-primary"type="submit" value="Update">
+              </div>
+            </div>
+          </form> 
+      </div>
+    </div>
+    <script type="text/javascript" src="/assets/javascripts/postData.js"></script>
+  </body>
+</html>

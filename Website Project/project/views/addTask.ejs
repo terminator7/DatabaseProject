@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=title%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel= 'stylesheet' href="/assets/stylesheets/style.css">
+  </head>
+  <body>
+    <div class="container-fluid main-container p-4">
+      <h1 class="title text-center">Add Task</h1>
+      <div class="text-center my-3" id="results"></div>
+      <div class="row d-flex justify-content-center my-4">
+        <div class="col-12">
+          <div class="d-flex justify-content-center">
+            <form action="/addTask" id="postForm">
+              <div class="row align-items-center form-group my-3">
+                <div class="col-4">
+                  <label for="tname" class="form-label w-100 text-right px-0">Task Name:</label>
+                </div>
+                <div class="col-8">
+                  <input type="text", name="tname", class="form-control">
+                </div>
+              </div>
+            
+              
+            <div class="row align-items-center form-group my-3">
+              <div class="col-4">
+                <label for="plevel" class="form-label w-100 text-right px-0">Priority Level:</label>
+              </div>
+              <div class="col-8">
+                <input type="text", name="plevel", class="form-control">
+              </div>
+            </div>
+
+            <div class="row align-items-center form-group my-3">
+              <div class="col-4">
+                <label for="cost" class="form-label w-100 text-right px-0">Cost:</label>
+              </div>
+              <div class="col-8">
+                <input type="text", name="cost", class="form-control">
+              </div>
+            </div>
+            <div class="row my-3">
+              <div class="col-12 d-flex justify-content-center mt-3">
+                <input class="btn btn-lg btn-primary"type="submit" value="Add">
+              </div>
+            </div>
+          </div>
+            </form> 
+          </div> 
+      </div>
+    </div>
+    <script type="text/javascript" src="/assets/javascripts/postData.js"></script>
+  </body>
+</html>
